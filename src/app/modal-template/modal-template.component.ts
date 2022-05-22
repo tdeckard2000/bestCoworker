@@ -12,16 +12,21 @@ export class ModalTemplateComponent implements OnInit {
 
   constructor(private modalService: ModalServiceService) { }
 
-  modalOpen:boolean = false;
+  modalIsOpen:boolean = false;
+
+  onCloseModal() {
+    this.modalService.closeModal(this.modalId);
+  }
 
   ngOnInit(): void {
-    this.modalService.getModalTrackerValues().subscribe((value: Array<string | null>) => {
+    this.modalService.getModalStatus().subscribe((value: Array<string | null>) => {
       if (value.includes(this.modalId)) {
-        this.modalOpen = true;
+        this.modalIsOpen = true;
       } else {
-        this.modalOpen = false;
+        this.modalIsOpen = false;
       };
-      console.log(this.modalId, " is open? ", this.modalOpen)
+      console.log(this.modalId, " is open? ", this.modalIsOpen)
+
 
     });
   }

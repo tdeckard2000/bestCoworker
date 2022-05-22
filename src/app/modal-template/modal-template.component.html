@@ -1,6 +1,10 @@
-<div class="modalBackground">
+<div class="modalBackground" *ngIf="modalIsOpen">
   <div class="modalContainer">
     <h3>{{modalTitle}}</h3>
     <input type="text">
+    <div class="buttonContianer">
+      <button (click)="onCloseModal()">Cancel</button>
+      <button>Save</button>
+    </div>
   </div>
 </div>

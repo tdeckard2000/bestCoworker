@@ -1,12 +1,12 @@
-<h3>Rate - A - Coworker</h3>
+<h3>Rate - A - Coworker 2.0</h3>
 
 <div class="buttonFlexBox">
-  <button>Add Person +</button>
-  <button>Add Vote Stat</button>
+  <button (click)="onOpenModal('addPerson')">Add Person +</button>
+  <button (click)="onOpenModal('addVoteStat')">Add Vote Stat</button>
 </div>
 
 <app-name-tile></app-name-tile>
 
-<div *ngIf="showNewPersonModal === true">
-  <app-modal-template [modalTitle]="'New Person'" [modalId]="'newPerson'"></app-modal-template>
-</div>
+<app-modal-template [modalTitle]="'Add Person'" [modalId]="'addPerson'"></app-modal-template>
+<app-modal-template [modalTitle]="'Add Vote Stat'" [modalId]="'addVoteStat'"></app-modal-template>
+

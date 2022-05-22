@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalServiceService } from './services/modal-service.service';
 
 @Component({
   selector: 'app-main',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  constructor(private modalService: ModalServiceService) { }
 
-  showNewPersonModal = true;
+  onOpenModal(modalId: string) {
+    this.modalService.openModal(modalId);
+  }
 
   ngOnInit(): void {
   }
