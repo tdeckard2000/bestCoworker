@@ -1,0 +1,19 @@
+.modalBackground {
+  background-color: rgba(163, 163, 177, 0.135);
+  position: absolute;
+  height: 98%;
+  top: 0px;
+  width: 98%;
+}
+
+.modalContainer {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 8px;
+  filter: drop-shadow(0 0 0.75rem rgba(122, 123, 170, 0.385));
+  height: 50vh;
+  margin: auto;
+  margin-top: 20vh;
+  max-width: 500px;
+  width: 80vw;
+}

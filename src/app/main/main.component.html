@@ -1,0 +1,12 @@
+<h3>Rate - A - Coworker</h3>
+
+<div class="buttonFlexBox">
+  <button>Add Person +</button>
+  <button>Add Vote Stat</button>
+</div>
+
+<app-name-tile></app-name-tile>
+
+<div *ngIf="showNewPersonModal === true">
+  <app-modal-template [modalTitle]="'New Person'" [modalId]="'newPerson'"></app-modal-template>
+</div>

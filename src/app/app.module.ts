@@ -3,10 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MainComponent } from './main/main.component';
+import { NameTileComponent } from './name-tile/name-tile.component';
+import { ModalTemplateComponent } from './modal-template/modal-template.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MainComponent,
+    NameTileComponent,
+    ModalTemplateComponent
   ],
   imports: [
     BrowserModule,
