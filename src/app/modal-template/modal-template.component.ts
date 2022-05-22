@@ -14,10 +14,6 @@ export class ModalTemplateComponent implements OnInit {
 
   modalIsOpen:boolean = false;
 
-  onCloseModal() {
-    this.modalService.closeModal(this.modalId);
-  }
-
   ngOnInit(): void {
     this.modalService.getModalStatus().subscribe((value: Array<string | null>) => {
       if (value.includes(this.modalId)) {

@@ -1,0 +1,14 @@
+<app-modal-template [modalTitle]="'Add Person'" [modalId]="'addPerson'">
+
+  <form [formGroup]="addPersonForm" (ngSubmit)="onSubmit()">
+    <input type="text" name="personName" id="personName" formControlName="personName">
+    <p *ngIf="showCharacterRequirementsError"> Name must be at least 2 characters long.</p>
+
+    <div class="buttonDiv">
+      <button (click)="onCloseModal()">Cancel</button>
+      <button type="submit">Save</button>
+    </div>
+  </form>
+
+
+</app-modal-template>
