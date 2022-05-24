@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from './services/api.service';
 import { ModalServiceService } from './services/modal-service.service';
 
 @Component({
@@ -8,13 +9,16 @@ import { ModalServiceService } from './services/modal-service.service';
 })
 export class MainComponent implements OnInit {
 
-  constructor(private modalService: ModalServiceService) { }
+  constructor(private modalService: ModalServiceService, private apiService:ApiService) { }
 
   onOpenModal(modalId: string) {
     this.modalService.openModal(modalId);
   }
 
   ngOnInit(): void {
+    this.apiService.getAllPersons().subscribe((result) => {
+      console.log(result)
+    });
   }
 
 }

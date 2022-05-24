@@ -9,6 +9,8 @@ import { ModalTemplateComponent } from './modal-template/modal-template.componen
 import { AddPersonModalComponent } from './add-person-modal/add-person-modal.component';
 import { AddVoteStatModalComponent } from './add-vote-stat-modal/add-vote-stat-modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
