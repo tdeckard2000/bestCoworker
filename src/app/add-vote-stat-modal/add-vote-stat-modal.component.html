@@ -1,10 +1,12 @@
 <app-modal-template [modalTitle]="'Add Vote Stat'" [modalId]="'addVoteStat'">
 
-  <input type="text">
-
-  <div class="buttonDiv">
-    <button (click)="onCloseModal()">Cancel</button>
-    <button>Save</button>
-  </div>
+  <form [formGroup]="addVoteStatForm" (ngSubmit)="onSubmit()">
+    <input type="text" name="voteStatName" id="voteStatName" formControlName="voteStatName">
+    <p *ngIf="showCharacterRequirementError">Name must be at least 2 characters long.</p>
+    <div class="buttonDiv">
+      <button (click)="onCloseModal()">Cancel</button>
+      <button type="submit">Save</button>
+    </div>
+  </form>
 
 </app-modal-template>

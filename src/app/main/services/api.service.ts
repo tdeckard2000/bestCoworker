@@ -10,17 +10,17 @@ import { catchError, retry } from 'rxjs/operators';
 export class ApiService {
 
   constructor(private http: HttpClient) { }
-
+  headers = { 'content-type': 'application/json'}
   route = 'http://localhost:3000'
 
   postNewPerson(name: string) {
     console.log("POST NEW NAME ", name)
-    return this.http.post(this.route + '/newPerson', {});
+    return this.http.post(this.route + '/newPerson', {name: name}, {'headers': this.headers});
   };
 
   postNewVoteStat(voteStat: string) {
     console.log("POST NEW VOTE STAT ", voteStat)
-    return this.http.post(this.route + '/newVoteStat', {});
+    return this.http.post(this.route + '/newVoteStat', {voteStat: voteStat});
   };
 
   postAddVote() {

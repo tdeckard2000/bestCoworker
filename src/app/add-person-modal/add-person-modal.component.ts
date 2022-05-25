@@ -24,10 +24,13 @@ export class AddPersonModalComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log("submit")
     const newPersonName = this.addPersonForm.value['personName'];
     if (this.addPersonForm.value['personName'] && this.addPersonForm.get('personName')?.valid) {
       this.showCharacterRequirementsError = false;
-      this.apiService.postNewPerson(newPersonName);
+      this.apiService.postNewPerson(newPersonName).subscribe((res) => {
+        console.log(res)
+      })
     } else {
       this.showCharacterRequirementsError = true;
     }
