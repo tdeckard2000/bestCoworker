@@ -20,7 +20,7 @@ export class ApiService {
 
   postNewVoteStat(voteStat: string) {
     console.log("POST NEW VOTE STAT ", voteStat)
-    return this.http.post(this.route + '/newVoteStat', {voteStat: voteStat});
+    return this.http.post(this.route + '/newVoteStat', {name: voteStat});
   };
 
   postAddVote() {
