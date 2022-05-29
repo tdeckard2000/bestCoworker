@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.postNewVoteStat = exports.postNewPerson = exports.getOneVoteStat = exports.getOnePerson = exports.getAllVoteStats = exports.getAllPersons = exports.connectToDatabase = exports.collections = void 0;
+exports.postNewVoteStat = exports.postNewPerson = exports.postAddVote = exports.getOneVoteStat = exports.getOnePerson = exports.getAllVoteStats = exports.getAllPersons = exports.connectToDatabase = exports.collections = void 0;
 var mongoDB = require("mongodb");
 var dotenv = require("dotenv");
 exports.collections = {};
@@ -56,7 +56,7 @@ function connectToDatabase() {
                     voteOptionsCollection = db.collection('voteOptions');
                     exports.collections.persons = personsCollection;
                     exports.collections.voteOptions = voteOptionsCollection;
-                    console.log('Connected to MongoDB');
+                    console.warn('Connected to MongoDB');
                     return [2 /*return*/];
             }
         });
@@ -112,6 +112,45 @@ function getOneVoteStat(voteStatName) {
     }
 }
 exports.getOneVoteStat = getOneVoteStat;
+;
+function postAddVote(personName, voteOptionName) {
+    var _a, _b;
+    return __awaiter(this, void 0, void 0, function () {
+        var voteOptionNameConverted, result, person, currentVote, e_1;
+        var _c;
+        return __generator(this, function (_d) {
+            switch (_d.label) {
+                case 0:
+                    voteOptionNameConverted = voteOptionName.toLowerCase().replace(/\s+/g, '');
+                    _d.label = 1;
+                case 1:
+                    _d.trys.push([1, 3, , 4]);
+                    return [4 /*yield*/, ((_a = exports.collections.persons) === null || _a === void 0 ? void 0 : _a.find({ name: personName }).toArray())];
+                case 2:
+                    result = _d.sent();
+                    if (result) {
+                        person = result[0];
+                        currentVote = person.votes[voteOptionNameConverted];
+                        if (currentVote) {
+                            currentVote++;
+                        }
+                        else if (!currentVote) {
+                            currentVote = 1;
+                        }
+                        ;
+                        return [2 /*return*/, (_b = exports.collections.persons) === null || _b === void 0 ? void 0 : _b.updateOne({ name: personName }, { $set: (_c = {}, _c['votes.' + voteOptionNameConverted] = currentVote, _c) })];
+                    }
+                    return [2 /*return*/];
+                case 3:
+                    e_1 = _d.sent();
+                    console.warn(e_1);
+                    return [2 /*return*/];
+                case 4: return [2 /*return*/];
+            }
+        });
+    });
+}
+exports.postAddVote = postAddVote;
 ;
 function postNewPerson(newPerson) {
     var _a;

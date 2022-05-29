@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { min } from 'rxjs';
-import { ApiService } from '../main/services/api.service';
-import { MainService } from '../main/services/main.service';
-import { ModalServiceService } from '../main/services/modal-service.service';
+import { ApiService } from '../services/api.service';
+import { MainService } from '../services/main.service';
+import { ModalServiceService } from '../services/modal-service.service';
 
 @Component({
   selector: 'app-add-person-modal',

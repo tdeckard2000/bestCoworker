@@ -2,7 +2,9 @@ import { ObjectId } from "mongodb";
 
 export interface Persons {
   name: string,
-  votes: object
+  votes: {
+    [key: string]: number
+  }
 };
 
 export interface VoteOptions {

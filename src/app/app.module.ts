@@ -10,6 +10,7 @@ import { AddPersonModalComponent } from './add-person-modal/add-person-modal.com
 import { AddVoteStatModalComponent } from './add-vote-stat-modal/add-vote-stat-modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RemoveSpacesPipe } from './remove-spaces.pipe';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     NameTileComponent,
     ModalTemplateComponent,
     AddPersonModalComponent,
-    AddVoteStatModalComponent
+    AddVoteStatModalComponent,
+    RemoveSpacesPipe
   ],
   imports: [
     BrowserModule,

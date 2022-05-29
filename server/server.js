@@ -59,9 +59,7 @@ app.use(express.static(path.join(__dirname, '..', 'dist')));
         var result;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0:
-                    console.log('allPersons');
-                    return [4 /*yield*/, (0, db_service_1.getAllPersons)()];
+                case 0: return [4 /*yield*/, (0, db_service_1.getAllPersons)()];
                 case 1:
                     result = _a.sent();
                     res.send(result);
@@ -119,10 +117,18 @@ app.use(express.static(path.join(__dirname, '..', 'dist')));
             }
         });
     }); });
-    app.post('/addVote', function (req, res) {
-        console.log('addVote');
-    });
+    app.post('/addVote', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, (0, db_service_1.postAddVote)(req.body.personName, req.body.voteOptionName)];
+                case 1:
+                    _a.sent();
+                    res.send({ successful: true });
+                    return [2 /*return*/];
+            }
+        });
+    }); });
     app.listen(port, function () {
-        console.log('Listening on port ', port);
+        console.warn('Listening on port ', port);
     });
 });

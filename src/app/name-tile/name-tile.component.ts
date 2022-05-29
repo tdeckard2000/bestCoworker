@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Persons, VoteOptions } from 'server/dbCollectionsInterface';
-import { MainService } from '../main/services/main.service';
+import { ApiService } from '../services/api.service';
+import { MainService } from '../services/main.service';
 
 @Component({
   selector: 'app-name-tile',
@@ -9,18 +10,21 @@ import { MainService } from '../main/services/main.service';
 })
 export class NameTileComponent implements OnInit {
 
-  constructor(private mainService: MainService) { }
+  constructor(private mainService: MainService, private apiService: ApiService) { }
 
   nameTiles: Array<Persons> | null = null;
   voteOptions: Array<VoteOptions> | null = null;
 
   onVoteOptionClick(personName: string, voteOptionName: string) {
-    console.log(personName, voteOptionName)
-  }
+    this.apiService.postAddVote(personName, voteOptionName).subscribe(() => {
+      this.mainService.setAllPersons();
+    });
+  };
 
   ngOnInit(): void {
     this.mainService.setAllPersons();
     this.mainService.getAllPersons().subscribe((res) => {
+      console.log('update')
       this.nameTiles = res;
     });
     this.mainService.setAllVoteOptions();

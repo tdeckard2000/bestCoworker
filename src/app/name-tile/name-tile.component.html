@@ -1,8 +1,9 @@
 <div *ngFor="let nameTile of nameTiles" class="tile">
-  <h3>{{nameTile.name}}</h3>
+  <h3 class="name">{{nameTile.name}}</h3>
   <div class="voteOptionsContainer">
     <ul class="voteOptionsList">
-      <li *ngFor="let voteOption of voteOptions;" (click)="onVoteOptionClick(nameTile.name, voteOption.name)">{{ voteOption.name | titlecase }}: 0</li>
+      <li *ngFor="let voteOption of voteOptions;" (click)="onVoteOptionClick(nameTile.name, voteOption.name)">{{ voteOption.name | titlecase }}: <span class="number">{{nameTile.votes[voteOption.name | removeSpaces | lowercase] || 0}}</span>
+      </li>
     </ul>
   </div>
 </div>

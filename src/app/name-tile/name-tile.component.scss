@@ -8,9 +8,19 @@ p {
   margin-top: 1px;
 }
 
+.name {
+  color: rgb(92, 92, 92);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.number {
+  color: rgb(37, 80, 154);
+}
+
 .tile {
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.423);
   border-radius: 5px;
+  box-shadow: 3px 3px 5px #dbdbdb80;
   padding: 15px;
   max-width: 800px;
   margin: auto;

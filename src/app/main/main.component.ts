@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from './services/api.service';
-import { ModalServiceService } from './services/modal-service.service';
+import { ApiService } from '../services/api.service';
+import { ModalServiceService } from '../services/modal-service.service';
 
 @Component({
   selector: 'app-main',

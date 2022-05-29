@@ -1,6 +1,7 @@
 import * as mongoDB from 'mongodb';
 import * as dotenv from 'dotenv';
 import { Persons, VoteOptions } from './dbCollectionsInterface';
+import { CursorError } from '@angular/compiler/src/ml_parser/lexer';
 
 export const collections: {
   persons?: mongoDB.Collection<Persons>,
@@ -16,7 +17,7 @@ export async function connectToDatabase() {
   const voteOptionsCollection = db.collection<VoteOptions>('voteOptions');
   collections.persons = personsCollection;
   collections.voteOptions = voteOptionsCollection;
-  console.log('Connected to MongoDB')
+  console.warn('Connected to MongoDB')
 };
 
 export function getAllPersons() {
@@ -52,6 +53,28 @@ export function getOneVoteStat(voteStatName: string) {
   } catch(e) {
     console.warn(e);
     return
+  }
+};
+
+export async function postAddVote(personName: string, voteOptionName: string) {
+  const voteOptionNameConverted = voteOptionName.toLowerCase().replace(/\s+/g, '');
+
+  try {
+    const result = await collections.persons?.find({name: personName}).toArray();
+    if(result) {
+      const person = result[0];
+      let currentVote = person.votes[voteOptionNameConverted];
+      if(currentVote) {
+        currentVote ++;
+      } else if(!currentVote) {
+        currentVote = 1;
+      };
+      return collections.persons?.updateOne({name: personName}, {$set: {['votes.' + voteOptionNameConverted]: currentVote}});
+    }
+    return;
+  } catch(e) {
+    console.warn(e);
+    return;
   }
 };
 

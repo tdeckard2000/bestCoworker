@@ -1,4 +1,4 @@
-import { connectToDatabase, getAllPersons, getAllVoteStats, getOnePerson, getOneVoteStat, postNewPerson, postNewVoteStat } from "./db.service";
+import { connectToDatabase, getAllPersons, getAllVoteStats, getOnePerson, getOneVoteStat, postNewPerson, postNewVoteStat, postAddVote } from "./db.service";
 const express = require('express');
 const path = require('path');
 const cors = require('cors')
@@ -19,7 +19,6 @@ connectToDatabase().then(() => {
   });
 
   app.get('/allPersons', async (req: any, res: any) => {
-    console.log('allPersons')
     const result = await getAllPersons();
     res.send(result);
   });
@@ -49,12 +48,13 @@ connectToDatabase().then(() => {
     };
   });
 
-  app.post('/addVote', (req: any, res: any) => {
-    console.log('addVote');
+  app.post('/addVote', async (req: any, res: any) => {
+    await postAddVote(req.body.personName, req.body.voteOptionName);
+    res.send({successful: true})
   });
 
   app.listen(port, () => {
-    console.log('Listening on port ', port);
+    console.warn('Listening on port ', port);
   });
 
 });
