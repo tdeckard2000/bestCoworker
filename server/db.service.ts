@@ -39,7 +39,7 @@ export function getAllVoteStats() {
 
 export function getOnePerson(personName: string) {
   try {
-    return collections.persons?.find({name: personName}).toArray()
+    return collections.persons?.find({name: {$regex: personName, $options: "i"}}).toArray()
   } catch(e) {
     console.warn(e);
     return
@@ -48,7 +48,7 @@ export function getOnePerson(personName: string) {
 
 export function getOneVoteStat(voteStatName: string) {
   try {
-    return collections.voteOptions?.find({name: voteStatName}).toArray()
+    return collections.voteOptions?.find({name: {$regex: voteStatName, $options: "i"}}).toArray()
   } catch(e) {
     console.warn(e);
     return

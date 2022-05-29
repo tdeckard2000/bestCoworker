@@ -25,3 +25,10 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Running Server While Developing
+1) npx tsc server/server.ts --watch
+This will transpile the ts file to js as changes are made.
+
+2) In another terminal. nodemon server/server.js
+This will rerun the server.js file when changes are detected.

@@ -1,6 +1,8 @@
-<div class="tile">
-  <h3>Trent</h3>
-  <p>Best Office References: 0</p>
-  <p>Best Red Hair: 6</p>
-  <p>Most Likely to Own an RV: 1</p>
+<div *ngFor="let nameTile of nameTiles" class="tile">
+  <h3>{{nameTile.name}}</h3>
+  <div class="voteOptionsContainer">
+    <ul class="voteOptionsList">
+      <li *ngFor="let voteOption of voteOptions;" (click)="onVoteOptionClick(nameTile.name, voteOption.name)">{{ voteOption.name | titlecase }}: 0</li>
+    </ul>
+  </div>
 </div>

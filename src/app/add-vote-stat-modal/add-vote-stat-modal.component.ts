@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../main/services/api.service';
+import { MainService } from '../main/services/main.service';
 import { ModalServiceService } from '../main/services/modal-service.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { ModalServiceService } from '../main/services/modal-service.service';
 })
 export class AddVoteStatModalComponent implements OnInit {
 
-  constructor(private modalService: ModalServiceService, private apiService:ApiService) { }
+  constructor(private modalService: ModalServiceService, private apiService:ApiService, private mainService: MainService) { }
 
   showCharacterRequirementError: boolean = false;
 
@@ -24,10 +25,12 @@ export class AddVoteStatModalComponent implements OnInit {
 
   onSubmit() {
     const newVoteStatName = this.addVoteStatForm.value['voteStatName'];
-    if(this.addVoteStatForm.get('voteStatName')?.valid) {
+    if(this.addVoteStatForm.value['voteStatName'] && this.addVoteStatForm.get('voteStatName')?.valid) {
       this.showCharacterRequirementError = false;
       this.apiService.postNewVoteStat(newVoteStatName).subscribe((res) => {
-        console.log(res)
+        this.mainService.setAllVoteOptions();
+        this.onCloseModal();
+        this.addVoteStatForm.setValue({voteStatName: ''});
       });
     } else {
       this.showCharacterRequirementError = true;

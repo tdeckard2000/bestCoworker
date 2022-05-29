@@ -92,7 +92,7 @@ exports.getAllVoteStats = getAllVoteStats;
 function getOnePerson(personName) {
     var _a;
     try {
-        return (_a = exports.collections.persons) === null || _a === void 0 ? void 0 : _a.find({ name: personName }).toArray();
+        return (_a = exports.collections.persons) === null || _a === void 0 ? void 0 : _a.find({ name: { $regex: personName, $options: "i" } }).toArray();
     }
     catch (e) {
         console.warn(e);
@@ -104,7 +104,7 @@ exports.getOnePerson = getOnePerson;
 function getOneVoteStat(voteStatName) {
     var _a;
     try {
-        return (_a = exports.collections.voteOptions) === null || _a === void 0 ? void 0 : _a.find({ name: voteStatName }).toArray();
+        return (_a = exports.collections.voteOptions) === null || _a === void 0 ? void 0 : _a.find({ name: { $regex: voteStatName, $options: "i" } }).toArray();
     }
     catch (e) {
         console.warn(e);
