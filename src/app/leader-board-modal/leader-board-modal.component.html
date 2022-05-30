@@ -5,7 +5,7 @@
     <ul>
       <li *ngFor="let voteOption of allVoteOptions;">
         <div>
-          {{voteOption.name}}
+          {{voteOption.name | titlecase}}
         </div>
         <div class="statsDiv" *ngIf="highestVotes[voteOption.name | removeSpaces | lowercase]['name']">
           <span class="highestName">{{highestVotes[voteOption.name | removeSpaces | lowercase]['name']}} </span>
