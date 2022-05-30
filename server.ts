@@ -11,12 +11,9 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname + '/dist/best-coworker')));
 
-console.log("#################### Loading Server.js")
-
 connectToDatabase().then(() => {
 
   app.get('/', async (req: any, res: any) => {
-    console.log("HOME ROUTE");
     res.sendFile(path.join(__dirname, '..', '/dist/best-coworker/index.html'));
   });
 

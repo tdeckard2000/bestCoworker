@@ -1,0 +1,13 @@
+<app-modal-template [modalTitle]="'Leader Board'" [modalId]="'leaderBoard'">
+
+  <div class="leaderListContainer">
+    <ul>
+      <li *ngFor="let voteOption of allVoteOptions;"> {{voteOption.name}} </li>
+    </ul>
+  </div>
+
+  <div class="buttonDiv">
+    <button (click)="onCloseModal()">Close</button>
+  </div>
+
+</app-modal-template>

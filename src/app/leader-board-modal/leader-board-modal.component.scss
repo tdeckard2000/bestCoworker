@@ -1,0 +1,26 @@
+button {
+  cursor: pointer;
+  height: 30px;
+  margin: 20px 10px;
+  width: 80px;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.buttonDiv {
+  text-align: center;
+}
+
+.leaderListContainer {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: .8rem;
+  height: fit-content;
+  max-height: 50vh;
+  overflow: auto;
+}

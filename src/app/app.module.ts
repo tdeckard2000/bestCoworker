@@ -11,6 +11,7 @@ import { AddVoteStatModalComponent } from './add-vote-stat-modal/add-vote-stat-m
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RemoveSpacesPipe } from './remove-spaces.pipe';
+import { LeaderBoardModalComponent } from './leader-board-modal/leader-board-modal.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { RemoveSpacesPipe } from './remove-spaces.pipe';
     ModalTemplateComponent,
     AddPersonModalComponent,
     AddVoteStatModalComponent,
-    RemoveSpacesPipe
+    RemoveSpacesPipe,
+    LeaderBoardModalComponent
   ],
   imports: [
     BrowserModule,

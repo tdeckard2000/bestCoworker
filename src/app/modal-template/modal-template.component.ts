@@ -21,9 +21,6 @@ export class ModalTemplateComponent implements OnInit {
       } else {
         this.modalIsOpen = false;
       };
-      console.log(this.modalId, " is open? ", this.modalIsOpen)
-
-
     });
   }
 

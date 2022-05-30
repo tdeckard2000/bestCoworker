@@ -1,3 +1,9 @@
+h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 100;
+  margin-left: 24px;
+}
+
 .modalBackground {
   background-color: rgba(163, 163, 177, 0.135);
   position: absolute;
@@ -8,12 +14,15 @@
 
 .modalContainer {
   background-color: white;
-  border: 1px solid black;
+  border: 1px solid rgb(142, 142, 142);
   border-radius: 8px;
   filter: drop-shadow(0 0 0.75rem rgba(122, 123, 170, 0.385));
   height: 50vh;
   margin: auto;
   margin-top: 20vh;
-  max-width: 500px;
+  max-width: 400px;
+  min-height: 240px;
+  height: fit-content;
+  max-height: 80vh;
   width: 80vw;
 }

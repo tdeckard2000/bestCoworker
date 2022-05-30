@@ -24,7 +24,6 @@ export class NameTileComponent implements OnInit {
   ngOnInit(): void {
     this.mainService.setAllPersons();
     this.mainService.getAllPersons().subscribe((res) => {
-      console.log('update')
       this.nameTiles = res;
     });
     this.mainService.setAllVoteOptions();

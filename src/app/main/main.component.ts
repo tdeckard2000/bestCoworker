@@ -17,7 +17,6 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     this.apiService.getAllPersons().subscribe((result) => {
-      console.log(result)
     });
   }
 
