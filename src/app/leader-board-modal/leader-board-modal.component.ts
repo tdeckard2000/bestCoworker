@@ -36,7 +36,9 @@ export class LeaderBoardModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.mainService.getAllPersons().subscribe((allPersons) => {
+      console.log("GOT PERSONS")
       this.mainService.getAllVoteOptions().subscribe((voteOptions) => {
+        console.log("GOT VOTE OPTIONS")
         this.allVoteOptions = voteOptions;
         this.determineLeaders(allPersons, voteOptions);
       });
