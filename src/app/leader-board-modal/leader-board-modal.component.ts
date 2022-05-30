@@ -29,7 +29,6 @@ export class LeaderBoardModalComponent implements OnInit {
         }
       }
     }
-    console.log(this.highestVotes)
   };
 
   onCloseModal() {
