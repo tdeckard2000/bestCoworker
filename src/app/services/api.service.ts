@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, isDevMode } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -9,7 +9,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
   headers = { 'content-type': 'application/json'}
-  route = 'http://localhost:3000'
+  route = isDevMode()? 'http://localhost:3000' : '';
 
   postNewPerson(name: string) {
     return this.http.post(this.route + '/newPerson', {name: name}, {'headers': this.headers});
