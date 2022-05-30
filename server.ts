@@ -1,4 +1,4 @@
-import { connectToDatabase, getAllPersons, getAllVoteStats, getOnePerson, getOneVoteStat, postNewPerson, postNewVoteStat, postAddVote } from "./db.service";
+import { connectToDatabase, getAllPersons, getAllVoteStats, getOnePerson, getOneVoteStat, postNewPerson, postNewVoteStat, postAddVote } from "./server/db.service";
 const express = require('express');
 const path = require('path');
 const cors = require('cors')
@@ -10,12 +10,13 @@ require('dotenv').config();
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '..', 'dist')));
+app.use(express.static(path.join(__dirname + '/dist/best-coworker')));
 
 connectToDatabase().then(() => {
 
   app.get('/', async (req: any, res: any) => {
-    res.send('Home')
+    console.log("HOME ROUTE");
+    res.sendFile(path.join(__dirname, '..', '/dist/best-coworker/index.html'));
   });
 
   app.get('/allPersons', async (req: any, res: any) => {

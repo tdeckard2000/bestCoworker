@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-var db_service_1 = require("./db.service");
+var db_service_1 = require("./server/db.service");
 var express = require('express');
 var path = require('path');
 var cors = require('cors');
@@ -47,11 +47,12 @@ var port = 3000;
 require('dotenv').config();
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '..', 'dist')));
+app.use(express.static(path.join(__dirname + '/dist/best-coworker')));
 (0, db_service_1.connectToDatabase)().then(function () {
     app.get('/', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
-            res.send('Home');
+            console.log("HOME ROUTE");
+            res.sendFile(path.join(__dirname, '..', '/dist/best-coworker/index.html'));
             return [2 /*return*/];
         });
     }); });
