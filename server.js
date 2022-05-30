@@ -41,13 +41,12 @@ var express = require('express');
 var path = require('path');
 var cors = require('cors');
 var app = express();
-var MongoClient = require('mongodb').MongoClient;
-var bodyParser = require('body-parser');
 var port = 3000;
 require('dotenv').config();
 app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname + '/dist/best-coworker')));
+console.log("#################### Loading Server.js");
 (0, db_service_1.connectToDatabase)().then(function () {
     app.get('/', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {

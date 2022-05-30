@@ -3,14 +3,14 @@ const express = require('express');
 const path = require('path');
 const cors = require('cors')
 const app = express();
-const {MongoClient} = require('mongodb')
-const bodyParser = require('body-parser');
 const port = 3000;
 require('dotenv').config();
 
 app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname + '/dist/best-coworker')));
+
+console.log("#################### Loading Server.js")
 
 connectToDatabase().then(() => {
 
