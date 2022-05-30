@@ -6,7 +6,10 @@ button {
 }
 
 li {
+  display: flex;
+  flex-direction: row;
   margin-bottom: 10px;
+  place-content: space-between;
 }
 
 ul {
@@ -17,10 +20,22 @@ ul {
   text-align: center;
 }
 
+.highestName {
+  color: #1a1ec9;
+}
+
+.highestNumber {
+  color: #008d19;
+}
+
 .leaderListContainer {
   font-family: Arial, Helvetica, sans-serif;
   font-size: .8rem;
   height: fit-content;
   max-height: 50vh;
   overflow: auto;
+}
+
+.statsDiv {
+  width: 140px;
 }

@@ -1,6 +1,6 @@
 <app-modal-template [modalTitle]="'Add Vote Stat'" [modalId]="'addVoteStat'">
-
   <form [formGroup]="addVoteStatForm" (ngSubmit)="onSubmit()">
+    <p>Enter a new stat to vote on.</p>
     <input type="text" name="voteStatName" id="voteStatName" formControlName="voteStatName">
     <p *ngIf="showCharacterRequirementError">Name must be at least 2 characters long.</p>
     <div class="buttonDiv">

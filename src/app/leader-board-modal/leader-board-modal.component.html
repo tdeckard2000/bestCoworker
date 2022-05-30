@@ -1,9 +1,20 @@
 <app-modal-template [modalTitle]="'Leader Board'" [modalId]="'leaderBoard'">
 
   <div class="leaderListContainer">
+
     <ul>
-      <li *ngFor="let voteOption of allVoteOptions;"> {{voteOption.name}} </li>
+      <li *ngFor="let voteOption of allVoteOptions;">
+        <div>
+          {{voteOption.name}}
+        </div>
+        <div class="statsDiv" *ngIf="highestVotes[voteOption.name | removeSpaces | lowercase]['name']">
+          <span class="highestName">{{highestVotes[voteOption.name | removeSpaces | lowercase]['name']}} </span>
+          <span class="highestNumber">{{highestVotes[voteOption.name | removeSpaces | lowercase]['number']}}</span>
+        </div>
+        <div class="statsDiv" *ngIf="!highestVotes[voteOption.name | removeSpaces | lowercase]['name']">-</div>
+      </li>
     </ul>
+
   </div>
 
   <div class="buttonDiv">
